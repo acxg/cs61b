@@ -1,6 +1,5 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -55,8 +54,8 @@ public class LinkedListDequeTest {
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
 
-		System.out.println("Get 1st item: "+lld1.get(5));
-		System.out.println("Get 1st item using recursive: "+lld1.getRecursive(5));
+		System.out.println("Get 1st item: " + lld1.get(5));
+		System.out.println("Get 1st item using recursive: " + lld1.getRecursive(5));
 
 		System.out.println("Printing out deque: ");
 		lld1.printDeque();
@@ -84,11 +83,28 @@ public class LinkedListDequeTest {
 
 		printTestStatus(passed);
 
+		lld1.isEmpty();
+		lld1.size();
+		lld1.addFirst(2);
+		lld1.isEmpty();
+		lld1.removeFirst();
+		lld1.addLast(5);
+		lld1.addLast(6);
+		lld1.addFirst(7);
+		lld1.addFirst(8);
+		lld1.addFirst(9);
+		int getnum = lld1.get(3);
+		System.out.println(getnum);
+		int a = lld1.removeLast();
+		System.out.println(a);
+
+
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		System.out.println();
 	}
 } 

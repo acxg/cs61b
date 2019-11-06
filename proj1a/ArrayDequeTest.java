@@ -63,7 +63,7 @@ public class ArrayDequeTest {
         lld1.addLast("back8");
         lld1.addLast("back9");
 
-        System.out.println("Get 1st item: "+lld1.get(0));
+        System.out.println("Get 1st item: " + lld1.get(0));
 
         System.out.println("Printing out deque: ");
         lld1.printDeque();
@@ -96,6 +96,7 @@ public class ArrayDequeTest {
         lld1.printDeque();
         int b = lld1.removeLast();
         System.out.println(b);
+        System.out.println();
 
         printTestStatus(passed);
 
@@ -105,5 +106,6 @@ public class ArrayDequeTest {
         System.out.println("Running tests.\n");
         addIsEmptySizeTest();
         addRemoveTest();
+        System.out.println();
     }
 }
