@@ -51,11 +51,8 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return;
         }
-        int last = nextlast;
-        if (nextlast < nextfirst) {
-            last = maxsize + last;
-        }
-        for (int cnt = nextfirst + 1; cnt < last; cnt++) {
+        int first = (nextfirst + 1) % maxsize;
+        for (int cnt = first; cnt < first + size; cnt++) {
             System.out.print(array[cnt % maxsize].toString() + ' ');
         }
         System.out.println();
