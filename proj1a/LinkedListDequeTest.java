@@ -41,7 +41,6 @@ public class LinkedListDequeTest {
 
 		lld1.addFirst("front");
 		lld1.printDeque();
-		
 		// The && operator is the same as "and" in Python.
 		// It's a binary operator that returns true if both arguments true, and false otherwise.
 		passed = checkSize(1, lld1.size()) && passed;
@@ -107,4 +106,4 @@ public class LinkedListDequeTest {
 		addRemoveTest();
 		System.out.println();
 	}
-} 
+}

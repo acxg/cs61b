@@ -90,15 +90,20 @@ public class ArrayDequeTest {
         System.out.println(a);
         passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
-        lld1.addFirst(10);
-        lld1.addFirst(9);
-        lld1.addLast(11);
-        lld1.printDeque();
-        int b = lld1.removeLast();
-        System.out.println(b);
-        System.out.println();
-
         printTestStatus(passed);
+
+
+        lld1.addFirst(0);
+        lld1.addFirst(1);
+        lld1.removeFirst();
+        lld1.addLast(3);
+        lld1.isEmpty();
+        lld1.addLast(5);
+        lld1.addLast(6);
+        lld1.addLast(7);
+        lld1.addFirst(8);
+        int d = lld1.removeLast();
+        System.out.println(d);
 
     }
 

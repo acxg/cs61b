@@ -4,9 +4,9 @@ public class LinkedListDeque<T> {
     private T a;
 
     private class Node {
-        public T item;
-        public Node prev;
-        public Node next;
+        private T item;
+        private Node prev;
+        private Node next;
 
         public Node(T i, Node p, Node n) {
             item = i;
@@ -23,16 +23,16 @@ public class LinkedListDeque<T> {
     }
 
     public void addFirst(T item) {
-        Node NewNode = new Node(item, sentinel, sentinel.next);
-        sentinel.next.prev = NewNode;
-        sentinel.next = NewNode;
+        Node newNode = new Node(item, sentinel, sentinel.next);
+        sentinel.next.prev = newNode;
+        sentinel.next = newNode;
         size += 1;
     }
 
     public void addLast(T item) {
-        Node NewNode = new Node(item, sentinel.prev,sentinel);
-        sentinel.prev.next = NewNode;
-        sentinel.prev = NewNode;
+        Node newNode = new Node(item, sentinel.prev, sentinel);
+        sentinel.prev.next = newNode;
+        sentinel.prev = newNode;
         size += 1;
     }
 
@@ -48,16 +48,16 @@ public class LinkedListDeque<T> {
         if (size == 0) {
             return;
         }
-        Node First = sentinel.next;
+        Node first = sentinel.next;
         for (int cnt = 1; cnt < size; cnt++) {
-            System.out.print(First.item.toString() + ' ');
-            First = First.next;
+            System.out.print(first.item.toString() + ' ');
+            first = first.next;
         }
-        System.out.print(First.item.toString());
+        System.out.print(first.item.toString());
         System.out.println();
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         if (size == 0) {
             return null;
         }

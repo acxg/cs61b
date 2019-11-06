@@ -14,7 +14,7 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        if (nextfirst == nextlast) {
+        if (size == maxsize) {
             resize(maxsize * RFACTOR);
         }
         array[nextfirst] = item;
@@ -32,7 +32,7 @@ public class ArrayDeque<T> {
         }
         array[nextlast] = item;
         size += 1;
-        if (nextlast == maxsize - 1){
+        if (nextlast == maxsize - 1) {
             nextfirst = 0;
         } else {
             nextlast += 1;
@@ -103,10 +103,10 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
-        System.arraycopy(array, 0,a,0,nextfirst);
-        System.arraycopy(array,nextfirst + 1,a,(capacity - (maxsize - nextfirst - 1)),(maxsize - nextfirst - 1));
+        System.arraycopy(array, 0, a, 0, nextfirst);
+        System.arraycopy(array,nextfirst + 1, a, (capacity - (maxsize - nextfirst - 1)), (maxsize - nextfirst - 1));
         if (nextfirst != 0) {
-            nextfirst = capacity - (maxsize - 1 - nextfirst ) - 1;
+            nextfirst = capacity - (maxsize - 1 - nextfirst) - 1;
         }
         maxsize = capacity;
 
