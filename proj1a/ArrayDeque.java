@@ -8,15 +8,19 @@ public class ArrayDeque<T>{
     private int RFACTOR = 2;
 
     public ArrayDeque(){
+        maxsize = 8;
         array = (T [])new Object[maxsize];
         size = 0;
     }
 
     public void addFirst(T item){
+        if(nextfirst == nextlast){
+            resize(maxsize*RFACTOR);
+        }
         array[nextfirst] = item;
         size += 1;
         if (nextfirst == 0){
-            nextfirst = maxsize;
+            nextfirst = maxsize-1;
         }
         else{
             nextfirst -= 1;
@@ -24,9 +28,12 @@ public class ArrayDeque<T>{
     }
 
     public void addLast(T item){
+        if(nextfirst == nextlast){
+            resize(maxsize*RFACTOR);
+        }
         array[nextlast] = item;
         size += 1;
-        if (nextlast == maxsize){
+        if (nextlast == maxsize-1){
             nextfirst = 0;
         }
         else{
@@ -92,8 +99,12 @@ public class ArrayDeque<T>{
 
     private void resize(int capacity){
         T[] a = (T[])new Object[capacity];
+        System.arraycopy(array, 0,a,0,nextfirst);
+        System.arraycopy(array,nextfirst+1,a,(capacity-(maxsize-nextfirst-1)),(maxsize-nextfirst-1));
+        if(nextfirst!=0){
+            nextfirst = capacity-(maxsize-1-nextfirst)-1;
+        }
         maxsize = capacity;
-        if(nextfirst>nextlast)
-        System.arraycopy();
+
     }
 }

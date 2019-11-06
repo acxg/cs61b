@@ -40,7 +40,7 @@ public class ArrayDequeTest {
 
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
-        lld1.addFirst("front");
+        lld1.addFirst("front0");
         lld1.printDeque();
 
         // The && operator is the same as "and" in Python.
@@ -48,17 +48,20 @@ public class ArrayDequeTest {
         passed = checkSize(1, lld1.size()) && passed;
         passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
-        lld1.addLast("middle");
+        lld1.addLast("middle1");
         passed = checkSize(2, lld1.size()) && passed;
 
 
-        lld1.addLast("back");
+        lld1.addLast("back2");
         passed = checkSize(3, lld1.size()) && passed;
 
-        lld1.addLast("back2");
         lld1.addLast("back3");
         lld1.addLast("back4");
         lld1.addLast("back5");
+        lld1.addLast("back6");
+        lld1.addLast("back7");
+        lld1.addLast("back8");
+        lld1.addLast("back9");
 
         System.out.println("Get 1st item: "+lld1.get(0));
 
