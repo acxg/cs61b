@@ -33,7 +33,7 @@ public class ArrayDeque<T> {
         array[nextlast] = item;
         size += 1;
         if (nextlast == maxsize - 1) {
-            nextfirst = 0;
+            nextlast = 0;
         } else {
             nextlast += 1;
         }
