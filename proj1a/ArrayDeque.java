@@ -27,7 +27,7 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T item) {
-        if (nextfirst == nextlast) {
+        if (size == maxsize) {
             resize(maxsize * RFACTOR);
         }
         array[nextlast] = item;
@@ -62,6 +62,9 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+//        if (Double.valueOf(size/maxsize) < 0.25 && maxsize > 8) {
+//            resize(maxsize >> 1);
+//        }
         T rem;
         int pos = nextfirst + 1;
         if (pos == maxsize) {
@@ -78,6 +81,9 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
+//        if (Double.valueOf(size/maxsize) < 0.25 && maxsize > 8) {
+//            resize(maxsize >> 1);
+//        }
         T rem;
         int pos = nextlast - 1;
         if (pos == -1) {
@@ -100,11 +106,22 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
-        System.arraycopy(array, 0, a, 0, nextfirst);
-        System.arraycopy(array,nextfirst + 1, a, (capacity - (maxsize - nextfirst - 1)), (maxsize - nextfirst - 1));
-        if (nextfirst != 0) {
-            nextfirst = capacity - (maxsize - 1 - nextfirst) - 1;
-        }
+        if (capacity > maxsize) {
+            System.arraycopy(array, 0, a, 0, nextfirst + 1);
+            System.arraycopy(array, nextfirst + 1, a, maxsize + nextfirst + 1, (maxsize - nextfirst - 1));
+            nextfirst = maxsize + nextfirst;
+        } /*else {
+            if (nextfirst > nextlast) {
+                System.arraycopy(array, 0, a, 0, nextlast - 1);
+                System.arraycopy(array, nextfirst + 1, a, maxsize + nextfirst + 1, (maxsize - nextfirst - 1));
+                nextfirst = nextfirst - capacity;
+            } else {
+                System.arraycopy(array, nextfirst + 1, a, 0, size);
+                nextfirst = capacity;
+                nextlast = size + 1;
+            }
+        }*/
+        array = a;
         maxsize = capacity;
 
     }

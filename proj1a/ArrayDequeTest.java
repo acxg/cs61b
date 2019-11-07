@@ -1,6 +1,5 @@
 /** Performs some basic linked list tests. */
 public class ArrayDequeTest {
-
     /* Utility method for printing out empty checks. */
     public static boolean checkEmpty(boolean expected, boolean actual) {
         if (expected != actual) {
@@ -100,6 +99,21 @@ public class ArrayDequeTest {
         lld1.addLast(6);
         lld1.addLast(7);
         lld1.addFirst(8);
+        lld1.addFirst(8);
+        lld1.addFirst(8);
+        lld1.addLast(9);
+        lld1.addFirst(10);
+        lld1.addLast(11);
+        lld1.addFirst(12);
+        lld1.addLast(13);
+        lld1.addFirst(14);
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
+        lld1.removeFirst();
         int d = lld1.removeLast();
         System.out.println(d);
 
