@@ -110,6 +110,9 @@ public class ArrayDeque<T> {
             System.arraycopy(array, 0, a, 0, nextfirst + 1);
             System.arraycopy(array, nextfirst + 1, a, maxsize + nextfirst + 1, (maxsize - nextfirst - 1));
             nextfirst = maxsize + nextfirst;
+            if (nextlast == 0) {
+                nextlast = maxsize + nextlast;
+            }
         } /*else {
             if (nextfirst > nextlast) {
                 System.arraycopy(array, 0, a, 0, nextlast - 1);

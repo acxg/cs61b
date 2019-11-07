@@ -91,29 +91,23 @@ public class ArrayDequeTest {
 
 
         lld1.addFirst(0);
-        lld1.addFirst(1);
-        lld1.removeFirst();
-        lld1.addLast(3);
-        lld1.isEmpty();
-        lld1.addLast(5);
+        lld1.addLast(1);
+        int get1 = lld1.get(1);
+        System.out.println(get1);
+        int get11 = lld1.get(1);
+        System.out.println(get11);
+        lld1.addFirst(4);
+        lld1.removeLast();
         lld1.addLast(6);
-        lld1.addLast(7);
+        lld1.addFirst(7);
         lld1.addFirst(8);
-        lld1.addFirst(8);
-        lld1.addFirst(8);
-        lld1.addLast(9);
+        int get111 = lld1.get(1);
+        System.out.println(get111);
         lld1.addFirst(10);
         lld1.addLast(11);
-        lld1.addFirst(12);
-        lld1.addLast(13);
+        lld1.addLast(12);
+        lld1.addFirst(13);
         lld1.addFirst(14);
-        lld1.removeFirst();
-        lld1.removeFirst();
-        lld1.removeFirst();
-        lld1.removeFirst();
-        lld1.removeFirst();
-        lld1.removeFirst();
-        lld1.removeFirst();
         int d = lld1.removeLast();
         System.out.println(d);
 
