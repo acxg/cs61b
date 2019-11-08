@@ -34,7 +34,29 @@ public class TestPalindrome {
 
     @Test
     public void testNewIsPalindrome() {
+        boolean res = palindrome.isPalindrome("flake", new OffByOne());
+        boolean actual = true;
+        assertEquals(res, actual);
+    }
 
-        boolean r1 = (OffByOne) cc.isPalindrome('flake');
+    @Test
+    public void testNewIsPalindrome2() {
+        boolean res = palindrome.isPalindrome("aba", new OffByOne());
+        boolean actual = false;
+        assertEquals(res, actual);
+    }
+
+    @Test
+    public void testNewIsPalindrome3() {
+        boolean res = palindrome.isPalindrome("bcd", new OffByOne());
+        boolean actual = false;
+        assertEquals(res, actual);
+    }
+
+    @Test
+    public void testNewIsPalindrome4() {
+        boolean res = palindrome.isPalindrome("b", new OffByOne());
+        boolean actual = true;
+        assertEquals(res, actual);
     }
 }
