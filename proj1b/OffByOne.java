@@ -9,7 +9,4 @@ public class OffByOne implements CharacterComparator {
         }
     }
 
-    public boolean isPalindrome(String word) {
-        return false;
-    }
 }

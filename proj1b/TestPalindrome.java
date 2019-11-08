@@ -32,9 +32,9 @@ public class TestPalindrome {
 
     }
 
-    CharacterComparator cc = new OffByOne();
     @Test
     public void testNewIsPalindrome() {
+
         boolean r1 = (OffByOne) cc.isPalindrome('flake');
     }
 }

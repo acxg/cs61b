@@ -20,4 +20,8 @@ public class Palindrome {
             return true;
         }
     }
+
+    public boolean isPalindrome(String word) {
+
+    }
 }
