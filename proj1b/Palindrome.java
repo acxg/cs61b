@@ -27,7 +27,7 @@ public class Palindrome {
             return true;
         } else {
             while (dWord.size() > 1) {
-                if(cc.equalChars( (char) dWord.removeFirst(), (char) dWord.removeLast()) == false) {
+                if (!cc.equalChars((char) dWord.removeFirst(), (char) dWord.removeLast())) {
                     return false;
                 }
             }

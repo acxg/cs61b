@@ -1,6 +1,6 @@
 public class OffByN implements CharacterComparator {
-    public int byN;
-    public OffByN(int N){
+    private int byN;
+    public OffByN(int N) {
         byN = N;
     }
 
@@ -9,8 +9,7 @@ public class OffByN implements CharacterComparator {
         int dif = x - y;
         if (Math.abs(dif) == byN) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }

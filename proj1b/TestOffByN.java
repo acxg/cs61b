@@ -17,7 +17,7 @@ public class TestOffByN {
 
     @Test
     public void testOffByOne2() {
-        boolean res2 = offBy5.equalChars('a','f');
+        boolean res2 = offBy5.equalChars('a', 'f');
         boolean actual2 = true;
         assertEquals(res2, actual2);
     }

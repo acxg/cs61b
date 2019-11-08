@@ -21,13 +21,19 @@ public class TestPalindrome {
         boolean res = palindrome.isPalindrome("a");
         boolean actual = true;
         assertEquals(res, actual);
+    }
 
+    @Test
+    public void testIsPalindrome2() {
         boolean res2 = palindrome.isPalindrome("cat");
         boolean actual2 = false;
-        assertEquals(res2,actual2);
+        assertEquals(res2, actual2);
+    }
 
-        boolean res3 = palindrome.isPalindrome("racecar");
-        boolean actual3 = true;
+    @Test
+    public void testIsPalindrome3() {
+        boolean res3 = palindrome.isPalindrome("Racecar");
+        boolean actual3 = false;
         assertEquals(res3, actual3);
 
     }
