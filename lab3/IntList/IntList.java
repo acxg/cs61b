@@ -250,5 +250,20 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
+    public static IntList reverse(IntList L) {
+        if (L == null) {
+            return null;
+        }
+        IntList frontofReversed = null;
+        IntList nextToAdd = L;
+        while (nextToAdd != null) {
+            IntList remainderOfOriginal = nextToAdd.rest;
+            nextToAdd.rest = frontofReversed;
+            frontofReversed = nextToAdd;
+            nextToAdd = remainderOfOriginal;
+        }
+        return frontofReversed;
+    }
 }
 
