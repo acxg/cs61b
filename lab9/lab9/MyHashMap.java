@@ -16,6 +16,7 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
 
     private ArrayMap<K, V>[] buckets;
     private int size;
+    private int length = DEFAULT_SIZE;
 
     private int loadFactor() {
         return size / buckets.length;
@@ -39,12 +40,12 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      *  computing the hashcode, followed by modding by the number of buckets.
      *  To handle negative numbers properly, uses floorMod instead of %.
      */
-    private int hash(K key) {
+    private int hash(K key, ArrayMap<K, V>[] am) {
         if (key == null) {
             return 0;
         }
 
-        int numBuckets = buckets.length;
+        int numBuckets = am.length;
         return Math.floorMod(key.hashCode(), numBuckets);
     }
 
@@ -53,19 +54,44 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
      */
     @Override
     public V get(K key) {
-        throw new UnsupportedOperationException();
+        return buckets[hash(key, buckets)].get(key);
     }
 
     /* Associates the specified value with the specified key in this map. */
     @Override
     public void put(K key, V value) {
-        throw new UnsupportedOperationException();
+        if (loadFactor() > MAX_LF) {
+            resize(length);
+            length *= 2;
+        }
+        if (!buckets[hash(key, buckets)].containsKey(key)) {
+            this.size += 1;
+        }
+        buckets[hash(key, buckets)].put(key, value);
+    }
+
+
+
+    /* Resize the arrar as loadfactor exceeds MAX_LF
+     */
+
+    private void resize(int newSize) {
+        ArrayMap<K, V>[] newBuckets = new ArrayMap[newSize];
+        for (int i = 0; i < newSize; i += 1) {
+            newBuckets[i] = new ArrayMap<>();
+        }
+        for (int i = 0; i < buckets.length; i += 1) {
+            for (K item : buckets[i].keySet()) {
+                newBuckets[hash(item, newBuckets)].put(item, buckets[hash(item, buckets)].get(item));
+            }
+        }
+        buckets = newBuckets;
     }
 
     /* Returns the number of key-value mappings in this map. */
     @Override
     public int size() {
-        throw new UnsupportedOperationException();
+        return this.size;
     }
 
     //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
